@@ -9,13 +9,13 @@ This repository holds code for first stage of recruitment process for internship
 
 creation process:
 
-> POST /products
-> GET /products/all
-> DELETE /products/all
-> DELETE /products/{id}
+> *POST /products
+> *GET /products/all
+> *DELETE /products/all
+> *DELETE /products/{id}
 
 generation and downloading:
 
-> GET /receipt
+> *GET /receipt
 
 This API mimics the behavior of most online stores.
