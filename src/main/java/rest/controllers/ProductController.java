@@ -4,8 +4,6 @@ import com.virtuslab.internship.product.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import rest.services.ProductService;
-
-import java.net.Inet4Address;
 import java.util.List;
 
 @RestController

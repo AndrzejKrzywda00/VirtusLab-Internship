@@ -23,4 +23,9 @@ public class ReceiptGenerator {
         return new Receipt(receiptEntries);
     }
 
+    public Receipt generateFromBasketDatabase() {
+        return new Receipt(new ArrayList<>());
+        // TODO -- implement communication!
+    }
+
 }
