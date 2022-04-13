@@ -19,4 +19,9 @@ public class ProductController {
         return service.getAll();
     }
 
+    @PostMapping("")
+    public Product add(@RequestBody Product product) {
+        return service.add(product);
+    }
+
 }
