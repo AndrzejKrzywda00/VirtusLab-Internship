@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import rest.services.ProductService;
 
+import java.net.Inet4Address;
 import java.util.List;
 
 @RestController
@@ -22,6 +23,16 @@ public class ProductController {
     @PostMapping("")
     public Product add(@RequestBody Product product) {
         return service.add(product);
+    }
+
+    @DeleteMapping("/all")
+    public void deleteAll() {
+        service.deleteAll();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Integer id) {
+        service.deleteById(id);
     }
 
 }
