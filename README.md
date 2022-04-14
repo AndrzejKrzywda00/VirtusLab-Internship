@@ -8,10 +8,10 @@ This repository holds code for first stage of recruitment process for internship
 
 3. API. I created Spring Boot app to handle this problem. I built standard layerd architecture for REST-like API and prepared endpoints for easy adding products to basket and generating a receipt. The API looks like this:
 
-Additionally: Product was moved to normal class instead of record to make mapper work correctly.
+~Additionally: Product was moved to normal class instead of record to make mapper work correctly.
 
 ---
-the basket API:
+Basket API:
 
 > * GET     /basket
 > * GET     /basket/product_name={name}
@@ -24,7 +24,7 @@ the basket API:
 Posting takes data from the preconfigured list of products.
 
 ---
-the products API:
+Products API:
 
 > * GET     /products
 > * GET     /products/name={name}
@@ -33,11 +33,11 @@ the products API:
 Of course methods are readonly.
 
 ---
-the receipt API:
+Receipt API:
 
 > * GET /recepit
 
 Returns generated receipt data.
 
 ---
-This API mimics the behavior of most online stores. Testing was conducted with use of Insomnia.
+This API mimics the behavior of most online stores. Testing was conducted with use of Insomnia. Starting class is src.main.java.Application.
