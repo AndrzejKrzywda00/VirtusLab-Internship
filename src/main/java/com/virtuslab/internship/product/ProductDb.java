@@ -3,6 +3,7 @@ package com.virtuslab.internship.product;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -34,10 +35,9 @@ public class ProductDb {
     }
 
     public Product findByName(String productName) {
-        return products.stream()
-                .filter(product -> productName.equals(product.name()))
-                .findFirst()
-                .get();         // this drops 500 internal server error
+        Optional<Product> optionalProduct = products.stream().filter(product -> productName.equals(product.name())).findFirst();
+        if(optionalProduct.isPresent()) return optionalProduct.get();
+        throw new IllegalArgumentException("no product in database with name " + productName);
     }
 
     public List<Product> findByType(Product.Type type) {

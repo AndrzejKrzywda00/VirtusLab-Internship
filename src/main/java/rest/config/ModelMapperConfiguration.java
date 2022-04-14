@@ -17,16 +17,12 @@ public class ModelMapperConfiguration {
 
         mapper.addMappings(new PropertyMap<ProductEntity, Product>() {
             @Override
-            protected void configure() {
-
-            }
+            protected void configure() {}
         });
 
         mapper.addMappings(new PropertyMap<Product, ProductEntity>() {
             @Override
-            protected void configure() {
-
-            }
+            protected void configure() {}
         });
 
         return mapper;
