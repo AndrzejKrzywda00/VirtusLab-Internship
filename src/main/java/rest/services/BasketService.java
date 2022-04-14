@@ -33,7 +33,7 @@ public record BasketService(ModelMapper mapper, BasketRepository repository) {
 
     public Product add(String name) {
         var product = productsDb.findByName(name);
-        var productEntity = repository.save(mapper.map(product, ProductEntity.class));
+        ProductEntity productEntity = repository.save(mapper.map(product, ProductEntity.class));
         return mapper.map(productEntity, Product.class);
     }
 
@@ -41,6 +41,7 @@ public record BasketService(ModelMapper mapper, BasketRepository repository) {
     // ------ DELETE ------
 
     public void deleteAll() {
+        var product = new Product();
         repository.deleteAll();
     }
 

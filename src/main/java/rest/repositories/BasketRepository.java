@@ -2,8 +2,8 @@ package rest.repositories;
 
 import com.virtuslab.internship.product.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import rest.entity.ProductEntity;
-
 import java.util.List;
 
 public interface BasketRepository extends JpaRepository<ProductEntity, Integer> {

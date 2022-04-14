@@ -19,27 +19,27 @@ public class BasketController {
         return service.getAll();
     }
 
-    @GetMapping("/name={name}")
+    @GetMapping("/product_name={name}")
     public List<Product> getByName(@PathVariable String name) {
         return service.getByName(name);
     }
 
-    @GetMapping("/type={type}")
+    @GetMapping("/product_type={type}")
     public List<Product> getByType(@PathVariable Product.Type type) {
         return service.getByType(type);
     }
 
-    @PostMapping("name={name}")
+    @PostMapping("product_name={name}")
     public Product post(@PathVariable String name) {
         return service.add(name);
     }
 
-    @DeleteMapping("/name={name}")
+    @DeleteMapping("/product_name={name}")
     public void deleteByName(@PathVariable String name) {
         service.deleteByName(name);
     }
 
-    @DeleteMapping("/type={type}")
+    @DeleteMapping("/product_type={type}")
     public void deleteByType(@PathVariable Product.Type type) {
         service.deleteByType(type);
     }

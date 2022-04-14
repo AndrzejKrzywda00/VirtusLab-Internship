@@ -38,7 +38,7 @@ public class ProductDb {
         return products.stream()
                 .filter(product -> productName.equals(product.name()))
                 .findFirst()
-                .get();
+                .get();         // this drops 500 internal server error
     }
 
     public List<Product> findAll() {

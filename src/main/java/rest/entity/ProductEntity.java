@@ -1,24 +1,28 @@
 package rest.entity;
 
 import com.virtuslab.internship.product.Product;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@Data
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class ProductEntity {
 
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    private BigDecimal price;
-
+    @Enumerated(EnumType.STRING)
     private Product.Type type;
+
+    private BigDecimal price;
 
 }

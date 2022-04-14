@@ -3,6 +3,7 @@ package com.virtuslab.internship.discount;
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.receipt.Receipt;
 import com.virtuslab.internship.receipt.ReceiptEntry;
+
 import java.math.BigDecimal;
 
 public class FifteenPercentDiscount {
