@@ -41,25 +41,11 @@ public class ProductDb {
                 .get();         // this drops 500 internal server error
     }
 
+    public List<Product> findByType(Product.Type type) {
+        return products.stream().filter(product -> type.equals(product.type())).collect(Collectors.toList());
+    }
+
     public List<Product> findAll() {
         return new ArrayList<>(products);
     }
-
-    public void save(Product product) {
-        products.add(product);
-    }
-
-    public void deleteByName(String name) {
-        products = products.stream().filter(product -> !name.equals(product.name())).collect(Collectors.toSet());
-    }
-
-    public void deleteAll() {
-        products = Collections.emptySet();
-    }
-
-    public List<Product> restoreAndReturnData() {
-        initializeDb();
-        return findAll();
-    }
-
 }

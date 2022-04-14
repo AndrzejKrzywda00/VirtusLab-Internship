@@ -23,24 +23,6 @@ public class ProductController {
         return service.getByName(name);
     }
 
-    @GetMapping("/reset")
-    public List<Product> reset() {
-        return service.resetDatabase();
-    }
 
-    @PostMapping("")
-    public Product add(@RequestBody Product product) {
-        return service.add(product);
-    }
-
-    @DeleteMapping("/all")
-    public void deleteAll() {
-        service.deleteAll();
-    }
-
-    @DeleteMapping("/{name}")
-    public void deleteByName(@PathVariable String name) {
-        service.deleteById(name);
-    }
 
 }
