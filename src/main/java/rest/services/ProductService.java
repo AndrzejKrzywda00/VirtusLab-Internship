@@ -2,6 +2,7 @@ package rest.services;
 
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.product.ProductDb;
+import org.hibernate.dialect.PointbaseDialect;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -14,6 +15,10 @@ public record ProductService() {
 
     public List<Product> getAll() {
         return repository.findAll();
+    }
+
+    public Product getByName(String name) {
+        return repository.findByName(name);
     }
 
     public Product add(Product product) {

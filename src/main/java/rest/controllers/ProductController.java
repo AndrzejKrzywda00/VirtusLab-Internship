@@ -18,6 +18,11 @@ public class ProductController {
         return service.getAll();
     }
 
+    @GetMapping("/{name}")
+    public Product getByName(@PathVariable String name) {
+        return service.getByName(name);
+    }
+
     @PostMapping("")
     public Product add(@RequestBody Product product) {
         return service.add(product);
