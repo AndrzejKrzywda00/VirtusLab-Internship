@@ -23,6 +23,9 @@ public class ProductController {
         return service.getByName(name);
     }
 
-
+    @GetMapping("/type={type}")
+    public List<Product> getByType(@PathVariable Product.Type type) {
+        return service.getByType(type);
+    }
 
 }
