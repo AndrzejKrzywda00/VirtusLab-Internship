@@ -2,6 +2,7 @@ package rest.controllers;
 
 import com.virtuslab.internship.product.Product;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import rest.services.BasketService;
 
@@ -34,11 +35,13 @@ public class BasketController {
         return service.add(name);
     }
 
+    @Transactional
     @DeleteMapping("/product_name={name}")
     public void deleteByName(@PathVariable String name) {
         service.deleteByName(name);
     }
 
+    @Transactional
     @DeleteMapping("/product_type={type}")
     public void deleteByType(@PathVariable Product.Type type) {
         service.deleteByType(type);

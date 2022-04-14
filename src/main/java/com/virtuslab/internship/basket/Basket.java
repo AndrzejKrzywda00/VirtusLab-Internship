@@ -30,10 +30,6 @@ public class Basket {
         productsAmounts.put(product, (amount+1));
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
     public Integer getAmountOfProduct(Product product) {
         return productsAmounts.get(product);
     }
