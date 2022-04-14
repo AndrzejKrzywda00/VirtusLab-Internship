@@ -19,12 +19,6 @@ class ReceiptGeneratorTest {
         var apple = productDb.findByName("Apple");
         var expectedTotalPrice = milk.price().multiply(BigDecimal.valueOf(2)).add(bread.price()).add(apple.price());
 
-        /*
-        2x milk
-        1x bread
-        1x apple
-         */
-
         cart.addProduct(milk);
         cart.addProduct(milk);
         cart.addProduct(bread);
@@ -54,7 +48,8 @@ class ReceiptGeneratorTest {
         var expectedTotalPrice =
                     milk.price().multiply(BigDecimal.valueOf(2))
                 .add(bread.price().multiply(BigDecimal.valueOf(5)))
-                .add(apple.price().multiply(BigDecimal.valueOf(8)));
+                .add(apple.price().multiply(BigDecimal.valueOf(8)))
+                .multiply(BigDecimal.valueOf(0.85));
 
         cart.addProduct(milk);
         cart.addProduct(milk);
@@ -74,13 +69,7 @@ class ReceiptGeneratorTest {
         assertNotNull(receipt);
         assertEquals(3, receipt.entries().size());
         assertEquals(expectedTotalPrice, receipt.totalPrice());
-        assertEquals(0, receipt.discounts().size());
-    }
-
-    // 10% discount scenario
-    @Test
-    void shouldGenerateReceiptForGivenBasketWithDiscount() {
-
+        assertEquals(1, receipt.discounts().size());
     }
 
 }

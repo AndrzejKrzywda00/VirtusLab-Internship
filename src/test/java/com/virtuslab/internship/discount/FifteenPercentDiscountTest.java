@@ -48,13 +48,6 @@ class FifteenPercentDiscountTest {
     @Test
     void shouldOnlyApply15PercentDiscount() {
 
-        /*
-        This scenario is as follows:
-        Total price is greater than 50
-        But 15% discount applies and falls below 50
-        So the only remaining discount is 15%
-         */
-
         // Given
         var productDb = new ProductDb();
         var bread = productDb.findByName("Bread");
