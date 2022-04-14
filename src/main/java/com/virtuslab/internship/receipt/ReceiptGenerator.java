@@ -1,8 +1,9 @@
 package com.virtuslab.internship.receipt;
 
 import com.virtuslab.internship.basket.Basket;
+import com.virtuslab.internship.discount.FifteenPercentDiscount;
+import com.virtuslab.internship.discount.TenPercentDiscount;
 import com.virtuslab.internship.product.Product;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,12 +21,13 @@ public class ReceiptGenerator {
             receiptEntries.add(new ReceiptEntry(element.getKey(), basket.getAmountOfProduct(element.getKey())));
         }
 
-        return new Receipt(receiptEntries);
+        return applyDiscounts(new Receipt(receiptEntries));
     }
 
-    public Receipt generateFromBasketDatabase() {
-        return new Receipt(new ArrayList<>());
-        // TODO -- implement communication!
+    private Receipt applyDiscounts(Receipt receipt) {
+        var tenPercentDiscount = new TenPercentDiscount();
+        var fifteenPercentDiscount = new FifteenPercentDiscount();
+        return tenPercentDiscount.apply(fifteenPercentDiscount.apply(receipt));
     }
 
 }

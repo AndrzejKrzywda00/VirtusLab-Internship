@@ -1,17 +1,28 @@
 package rest.services;
 
+import com.virtuslab.internship.basket.Basket;
+import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.receipt.Receipt;
+import com.virtuslab.internship.receipt.ReceiptGenerator;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
+import rest.repositories.ProductRepository;
+import java.util.List;
 
 @Service
-public class ReceiptService {
+public record ReceiptService(ModelMapper mapper, ProductRepository repository) {
+
+    static ReceiptGenerator generator = new ReceiptGenerator();
 
     // GET
     public Receipt get() {
-        // TODO -- implement this
-        return new Receipt(new ArrayList<>());
+        Basket basket = new Basket();
+        List<Product> products = repository.findAll().stream().map(productEntity -> mapper.map(productEntity, Product.class)).toList();
+        for(Product product : products) {
+            basket.addProduct(product);
+            // TODO -- replace with addAll
+        }
+        return generator.generate(basket);
     }
 
 }
