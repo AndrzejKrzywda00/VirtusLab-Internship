@@ -7,15 +7,35 @@ This repository holds code for first stage of recruitment process for internship
 
 3. API. I created Spring Boot app to handle this problem. I built standard layerd architecture for REST-like API and prepared endpoints for easy adding products to basket and generating a receipt. The API looks like this:
 
-creation process:
+Additionally: Product was moved to normal class instead of record to make mapper work correctly.
 
-> * POST /products
-> * GET /products/all
-> * DELETE /products/all
-> * DELETE /products/{id}
+the basket API:
 
-generation and downloading:
+GET     /basket
+GET     /basket/product_name={name}
+GET     /basket/product_type={type}
+POST    /basket/product_name={name}
+DELETE  /basket/product_name={name}
+DELETE  /basket/product_type={type}
+DELETE  /basket/all
 
-> * GET /receipt
+Posting takes data from the preconfigured list of products.
+---
 
-This API mimics the behavior of most online stores.
+the products API:
+
+GET     /products
+GET     /products/name={name}
+GET     /products/type={type}
+
+Of course methods are readonly.
+---
+
+the receipt API:
+
+GET /recepit
+
+Returns generated receipt data.
+---
+
+This API mimics the behavior of most online stores. Testing was conducted with use of Insomnia.
