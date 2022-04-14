@@ -18,9 +18,14 @@ public class ProductController {
         return service.getAll();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name={name}")
     public Product getByName(@PathVariable String name) {
         return service.getByName(name);
+    }
+
+    @GetMapping("/reset")
+    public List<Product> reset() {
+        return service.resetDatabase();
     }
 
     @PostMapping("")

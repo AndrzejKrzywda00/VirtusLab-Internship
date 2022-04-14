@@ -5,7 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import rest.entities.ProductEntity;
+import rest.entity.ProductEntity;
 
 @Configuration
 public class ModelMapperConfiguration {

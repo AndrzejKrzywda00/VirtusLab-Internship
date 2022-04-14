@@ -13,6 +13,8 @@ public record ProductService() {
 
     private static final ProductDb repository = new ProductDb();
 
+    // ----- GET ------
+
     public List<Product> getAll() {
         return repository.findAll();
     }
@@ -21,12 +23,20 @@ public record ProductService() {
         return repository.findByName(name);
     }
 
+    // ----- SET ------
+
     public Product add(Product product) {
         if(validateProduct(product)) {
            repository.save(product);
         }
         return product;
     }
+
+    public List<Product> resetDatabase() {
+        return repository.restoreAndReturnData();
+    }
+
+    // ----- DELETE ------
 
     public void deleteAll() {
         repository.deleteAll();
@@ -35,6 +45,7 @@ public record ProductService() {
     public void deleteById(String name) {
         repository.deleteByName(name);
     }
+
 
     private boolean validateProduct(Product product) {
         // TODO -- make this throw exception

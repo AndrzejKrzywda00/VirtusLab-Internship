@@ -2,7 +2,7 @@ package rest.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import rest.entities.ProductEntity;
+import rest.entity.ProductEntity;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
