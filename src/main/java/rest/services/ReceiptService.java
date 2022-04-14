@@ -14,14 +14,12 @@ public record ReceiptService(ModelMapper mapper, ProductRepository repository) {
 
     static ReceiptGenerator generator = new ReceiptGenerator();
 
-    // GET
+    // ------ GET ------
+
     public Receipt get() {
         Basket basket = new Basket();
         List<Product> products = repository.findAll().stream().map(productEntity -> mapper.map(productEntity, Product.class)).toList();
-        for(Product product : products) {
-            basket.addProduct(product);
-            // TODO -- replace with addAll
-        }
+        basket.addAll(products);
         return generator.generate(basket);
     }
 
