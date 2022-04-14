@@ -1,5 +1,6 @@
 # VirtusLab-Internship
 This repository holds code for first stage of recruitment process for internship in VirtusLab.
+
 ---
 1. First task was to make tests not fail. The problem with first test was that the inequality qualifying for the discount activation was inverted. The second problem was with null value of the discounts field in the receipt, I changed it to empty ArrayList declaration. Third problem was with proper generation of Receipt based on list of Products in the basket. I solved this one with HashMap<Product, Integer> which allowed me to keep track of what is in the basket in clean and efficent way. All tests passed, moreover i wrote all necessary additional tests, to try all possible situations that may occurr.
 
@@ -9,6 +10,7 @@ This repository holds code for first stage of recruitment process for internship
 
 Additionally: Product was moved to normal class instead of record to make mapper work correctly.
 
+---
 the basket API:
 
 > * GET     /basket
@@ -22,7 +24,6 @@ the basket API:
 Posting takes data from the preconfigured list of products.
 
 ---
-
 the products API:
 
 > * GET     /products
@@ -32,7 +33,6 @@ the products API:
 Of course methods are readonly.
 
 ---
-
 the receipt API:
 
 > * GET /recepit
@@ -40,5 +40,4 @@ the receipt API:
 Returns generated receipt data.
 
 ---
-
 This API mimics the behavior of most online stores. Testing was conducted with use of Insomnia.
