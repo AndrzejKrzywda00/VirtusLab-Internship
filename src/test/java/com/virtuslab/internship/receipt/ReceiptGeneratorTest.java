@@ -14,9 +14,9 @@ class ReceiptGeneratorTest {
         // Given
         var productDb = new ProductDb();
         var cart = new Basket();
-        var milk = productDb.getProduct("Milk");
-        var bread = productDb.getProduct("Bread");
-        var apple = productDb.getProduct("Apple");
+        var milk = productDb.findByName("Milk");
+        var bread = productDb.findByName("Bread");
+        var apple = productDb.findByName("Apple");
         var expectedTotalPrice = milk.price().multiply(BigDecimal.valueOf(2)).add(bread.price()).add(apple.price());
 
         /*
@@ -48,9 +48,9 @@ class ReceiptGeneratorTest {
 
         var productDb = new ProductDb();
         var cart = new Basket();
-        var milk = productDb.getProduct("Milk");
-        var bread = productDb.getProduct("Bread");
-        var apple = productDb.getProduct("Apple");
+        var milk = productDb.findByName("Milk");
+        var bread = productDb.findByName("Bread");
+        var apple = productDb.findByName("Apple");
         var expectedTotalPrice =
                     milk.price().multiply(BigDecimal.valueOf(2))
                 .add(bread.price().multiply(BigDecimal.valueOf(5)))

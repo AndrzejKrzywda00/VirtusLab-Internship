@@ -16,8 +16,8 @@ class TenPercentDiscountTest {
 
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
-        var steak = productDb.getProduct("Steak");
+        var cheese = productDb.findByName("Cheese");
+        var steak = productDb.findByName("Steak");
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 1));
         receiptEntries.add(new ReceiptEntry(steak, 1));
@@ -39,7 +39,7 @@ class TenPercentDiscountTest {
 
         // Given
         var productDb = new ProductDb();
-        var cheese = productDb.getProduct("Cheese");
+        var cheese = productDb.findByName("Cheese");
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(cheese, 2));
 

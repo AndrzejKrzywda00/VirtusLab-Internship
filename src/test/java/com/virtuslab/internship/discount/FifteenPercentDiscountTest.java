@@ -16,10 +16,10 @@ class FifteenPercentDiscountTest {
 
         // Given
         var productDb = new ProductDb();
-        var potato = productDb.getProduct("Potato");
-        var banana = productDb.getProduct("Banana");
-        var butter = productDb.getProduct("Butter");
-        var bread = productDb.getProduct("Bread");
+        var potato = productDb.findByName("Potato");
+        var banana = productDb.findByName("Banana");
+        var butter = productDb.findByName("Butter");
+        var bread = productDb.findByName("Bread");
 
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(potato, 10));
@@ -57,8 +57,8 @@ class FifteenPercentDiscountTest {
 
         // Given
         var productDb = new ProductDb();
-        var bread = productDb.getProduct("Bread");
-        var cereals = productDb.getProduct("Cereals");
+        var bread = productDb.findByName("Bread");
+        var cereals = productDb.findByName("Cereals");
 
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(bread, 6));
@@ -85,8 +85,8 @@ class FifteenPercentDiscountTest {
     void shouldApplyBothDiscounts() {
 
         var productDb = new ProductDb();
-        var bread = productDb.getProduct("Bread");
-        var cereals = productDb.getProduct("Cereals");
+        var bread = productDb.findByName("Bread");
+        var cereals = productDb.findByName("Cereals");
 
         List<ReceiptEntry> receiptEntries = new ArrayList<>();
         receiptEntries.add(new ReceiptEntry(bread, 10));

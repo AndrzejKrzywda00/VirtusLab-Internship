@@ -28,9 +28,9 @@ public class ProductController {
         service.deleteAll();
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Integer id) {
-        service.deleteById(id);
+    @DeleteMapping("/{name}")
+    public void deleteByName(@PathVariable String name) {
+        service.deleteById(name);
     }
 
 }

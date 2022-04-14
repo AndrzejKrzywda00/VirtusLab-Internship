@@ -1,15 +1,21 @@
 package com.virtuslab.internship.product;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ProductDb {
 
-    private final Set<Product> products;
+    private Set<Product> products;
 
     public ProductDb() {
+        initializeDb();
+    }
+
+    private void initializeDb() {
         products = Stream.of(
                 new Product("Apple", Product.Type.FRUITS, new BigDecimal(2)),
                 new Product("Orange", Product.Type.FRUITS, new BigDecimal(5)),
@@ -27,10 +33,26 @@ public class ProductDb {
         ).collect(Collectors.toSet());
     }
 
-    public Product getProduct(String productName) {
+    public Product findByName(String productName) {
         return products.stream()
                 .filter(product -> productName.equals(product.name()))
                 .findFirst()
                 .get();
+    }
+
+    public List<Product> findAll() {
+        return new ArrayList<>(products);
+    }
+
+    public void save(Product product) {
+        products.add(product);
+    }
+
+    public void deleteByName(String name) {
+        products = products.stream().filter(product -> !name.equals(product.name())).collect(Collectors.toSet());
+    }
+
+    public void deleteAll() {
+         initializeDb();
     }
 }
