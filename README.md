@@ -11,31 +11,34 @@ Additionally: Product was moved to normal class instead of record to make mapper
 
 the basket API:
 
-GET     /basket
-GET     /basket/product_name={name}
-GET     /basket/product_type={type}
-POST    /basket/product_name={name}
-DELETE  /basket/product_name={name}
-DELETE  /basket/product_type={type}
-DELETE  /basket/all
+> * GET     /basket
+> * GET     /basket/product_name={name}
+> * GET     /basket/product_type={type}
+> * POST    /basket/product_name={name}
+> * DELETE  /basket/product_name={name}
+> * DELETE  /basket/product_type={type}
+> * DELETE  /basket/all
 
 Posting takes data from the preconfigured list of products.
+
 ---
 
 the products API:
 
-GET     /products
-GET     /products/name={name}
-GET     /products/type={type}
+> * GET     /products
+> * GET     /products/name={name}
+> * GET     /products/type={type}
 
 Of course methods are readonly.
+
 ---
 
 the receipt API:
 
-GET /recepit
+> * GET /recepit
 
 Returns generated receipt data.
+
 ---
 
 This API mimics the behavior of most online stores. Testing was conducted with use of Insomnia.
